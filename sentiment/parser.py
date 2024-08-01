@@ -31,8 +31,6 @@ def read_driver_reaction_file(file_path: str, df_driver_times: pd.DataFrame) -> 
 
     merged_df = fill_drivers(merged_df)
 
-    print(merged_df)
-
     merged_df = merged_df.groupby(['driver', 'place'])['reaction'].apply(' '.join).reset_index()
 
     merged_df = merged_df.sort_values(by='place', ascending=True)
